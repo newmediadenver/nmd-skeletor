@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/newmediadenver/drupal.svg?branch=3.x)](https://travis-ci.org/newmediadenver/drupal)
 
 New Media Denver's nmd-skeletor cookbook
 =============================
@@ -12,7 +11,7 @@ Requirements
 
 ### Platforms
 
-`every_dsitro_you_write_it_to_support >= 0.1.0`
+`every_distro >= 0.1.0`
 
 ### Dependencies
 
@@ -76,6 +75,7 @@ License and Authors
 ------------------
 
 The following users have contributed to this code: 
+*   David Arnold
 *   DavidXArnold
 
 
