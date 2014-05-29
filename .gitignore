@@ -1,0 +1,5 @@
+*.lock
+vendor/*
+.kitchen
+.DS_Store
+/coverage

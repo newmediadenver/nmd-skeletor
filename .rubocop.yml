@@ -1,0 +1,7 @@
+AllCops:
+  Include:
+    - Berksfile
+    - Gemfile
+    - Rakefile
+  Exclude:
+    - vendor/**
