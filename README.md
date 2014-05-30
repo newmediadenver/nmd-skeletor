@@ -4,7 +4,7 @@ New Media Denver's nmd-skeletor cookbook
 
 nmd-skeletor (0.1.0) Base skeleton Cookbook
 
-This is the base skeleton Cookbook for New Media Denver's Cookbooks. This skeleton helps rapidly test, deploy, and update a project.  The skeleton that we have built leverages chef metadata and uses tools such as ruby linters, rake, rspec, and travis.
+This is the base skeleton Cookbook for New Media Denver's Chef Cookbooks. This skeleton helps rapidly test, deploy, and update a Chef recipe.  The skeleton that we have built leverages Chef metadata and uses tools such as ruby linters, rake, rspec, and travis.
 
 Requirements
 ------------
