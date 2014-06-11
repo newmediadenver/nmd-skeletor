@@ -36,7 +36,9 @@ Testing and Utility
 License and Authors
 ------------------
 
-The following users have contributed to this code: <% authors.each do |author| %><% unless author.nil? %><%= "\n*   #{author}" %><% end %><% end %>
+The following users have contributed to this code:
+<% authors.each do |author| %>  * [<%= author[1] %>](<%= author[0] %>)
+<% end %>
 
 
 Copyright:: 2014, NewMedia Denver

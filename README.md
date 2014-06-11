@@ -63,6 +63,9 @@ Testing and Utility
     rake rubocop
         Run RuboCop style and lint checks
     
+    rake rubocop:auto_correct
+        Auto-correct RuboCop offenses
+    
     rake spec
         Run ChefSpec examples
     
@@ -74,9 +77,10 @@ Testing and Utility
 License and Authors
 ------------------
 
-The following users have contributed to this code: 
-*   David Arnold
-*   DavidXArnold
+The following users have contributed to this code:
+  * [Kevin Bridges](https://github.com/cyberswat)
+  * [David Arnold, DavidXArnold](https://github.com/DavidXArnold)
+
 
 
 Copyright:: 2014, NewMedia Denver
