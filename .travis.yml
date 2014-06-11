@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+- 1.9.3
+- 2.0.0
+- 2.1.1
+install: script/cached-bundle install --without integration --deployment
+notifications:
+  hipchat:
+    rooms:
+      secure:
+script: bundle exec rake test
+env:
+  global:
+    secure:
