@@ -11,6 +11,7 @@ group :test, :development do
   gem 'rake', '>= 10.3.0'
   gem 'rspec', '>= 2.14.1'
   gem 'rubocop', '>= 0.20.0'
+  gem 'octokit', '~> 3.0'
 end
 
 group :integration do

@@ -5,6 +5,7 @@ require 'rubocop/rake_task'
 require 'erb'
 require 'ostruct'
 require 'chef/cookbook/metadata'
+require 'octokit'
 
 # Provides a basic Readme class so we can use a erb template.
 class Readme < OpenStruct
@@ -22,14 +23,44 @@ FoodCritic::Rake::LintTask.new(:foodcritic)
 desc 'Run ChefSpec examples'
 RSpec::Core::RakeTask.new(:spec)
 
+def credit
+  logs = `git log`.split('commit ')
+  logs.shift
+
+  authors = {}
+  credit = {}
+
+  logs.map do |log|
+    l = log.split("\n")
+    commit = l.shift
+    author = l.shift.to_s.split('Author: ')[1]
+    unless author.nil?
+      if authors[author].nil?
+        commit_detail = Octokit.commit('newmediadenver/nmd-skeletor', commit)
+        authors[author] = commit_detail[:author][:html_url]
+        if credit[commit_detail[:author][:html_url]].nil?
+          credit[commit_detail[:author][:html_url]] = {}
+        end
+        credit[commit_detail[:author][:html_url]][author.split(' <')[0]] = author.split(' <')[1][0..-2]
+      end
+    end
+  end
+  credit.each do |key, names|
+    clean_names = []
+    names.each do |name, _email|
+      clean_names.push(name)
+    end
+    credit[key] = clean_names.join(', ')
+  end
+  credit
+end
+
 desc 'Generate the Readme.md file.'
 task :readme do
   rake_tasks = `rake -D`
   metadata = Chef::Cookbook::Metadata.new
   metadata.from_file('metadata.rb')
-  authors = `git shortlog -sn`.b.scan(/[^\d\s].*/).map do |a|
-    a == 'Making GitHub Delicious.' ? nil : a
-  end
+  authors = getCredit
   markdown = Readme.new(
                          metadata: metadata,
                          rake_tasks: rake_tasks.gsub("\n", "\n    "),
