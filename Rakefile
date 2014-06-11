@@ -60,7 +60,7 @@ task :readme do
   rake_tasks = `rake -D`
   metadata = Chef::Cookbook::Metadata.new
   metadata.from_file('metadata.rb')
-  authors = getCredit
+  authors = credit
   markdown = Readme.new(
                          metadata: metadata,
                          rake_tasks: rake_tasks.gsub("\n", "\n    "),
