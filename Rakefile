@@ -18,7 +18,9 @@ desc 'Run RuboCop style and lint checks'
 RuboCop::RakeTask.new(:rubocop)
 
 desc 'Run Foodcritic lint checks'
+puts 'Starting FoodCritic'
 FoodCritic::Rake::LintTask.new(:foodcritic)
+puts 'FoodCritic finished'
 
 desc 'Run ChefSpec examples'
 RSpec::Core::RakeTask.new(:spec)
