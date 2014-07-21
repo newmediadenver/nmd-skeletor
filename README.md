@@ -1,4 +1,3 @@
-
 New Media Denver's nmd-skeletor cookbook
 =============================
 
@@ -19,69 +18,63 @@ Requirements
 Attributes
 ----------
 
-    none/yet/path: 
-      display_name: "[:skeletor][:attribute][:path]"
-      description: This is an example attribute defined in chef metadata
-      type: string
-      required: recommended
-      recipes:
-      - nmd-skeletor::recipe
-      default: none/yet/path
-      choice: []
+    none/yet/path
       calculated: false
-    
+      choice: []
+      default: none/yet/path
+      description: This is an example attribute defined in chef metadata
+      display_name: [:skeletor][:attribute][:path]
+      type: string
+      recipes: ["nmd-skeletor::recipe"]
+      required: recommended
+
 
 Recipes
 -------
 
-        
-
 Testing and Utility
 -------
+    <Rake::Task default => [test]>
 
-    rake foodcritic
-        Lint Chef cookbooks
-    
-    rake integration
-        Alias for kitchen:all
-    
-    rake kitchen:all
-        Run all test instances
-    
-    rake kitchen:default-centos-64
-        Run default-centos-64 test instance
-    
-    rake kitchen:default-ubuntu-1204
-        Run default-ubuntu-1204 test instance
-    
-    rake kitchen:default-ubuntu-1404
-        Run default-ubuntu-1404 test instance
-    
-    rake readme
-        Generate the Readme.md file.
-    
-    rake rubocop
-        Run RuboCop style and lint checks
-    
-    rake rubocop:auto_correct
-        Auto-correct RuboCop offenses
-    
-    rake spec
-        Run ChefSpec examples
-    
-    rake test
-        Run all tests
-    
-    
+    <Rake::Task foodcritic => []>
+      Run Foodcritic lint checks
+
+    <Rake::Task integration => [kitchen:all]>
+      Alias for kitchen:all
+
+    <Rake::Task kitchen:all => [default-ubuntu-1204, default-ubuntu-1404, default-centos-64]>
+      Run all test instances
+
+    <Rake::Task kitchen:default-centos-64 => []>
+      Run default-centos-64 test instance
+
+    <Rake::Task kitchen:default-ubuntu-1204 => []>
+      Run default-ubuntu-1204 test instance
+
+    <Rake::Task kitchen:default-ubuntu-1404 => []>
+      Run default-ubuntu-1404 test instance
+
+    <Rake::Task readme => []>
+      Generate the Readme.md file.
+
+    <Rake::Task rubocop => []>
+      Run RuboCop style and lint checks
+
+    <Rake::Task rubocop:auto_correct => []>
+      Auto-correct RuboCop offenses
+
+    <Rake::Task spec => []>
+      Run ChefSpec examples
+
+    <Rake::Task test => [rubocop, foodcritic, spec, integration]>
+      Run all tests
 
 License and Authors
 ------------------
 
-The following users have contributed to this code:
-  * [Kevin Bridges](https://github.com/cyberswat)
-  * [David Arnold, DavidXArnold](https://github.com/DavidXArnold)
-
-
+The following engineers have contributed to this code:
+ * [Kevin Bridges](https://github.com/cyberswat) - 7 commits
+ * [David Arnold, DavidXArnold](https://github.com/DavidXArnold) - 12 commits
 
 Copyright:: 2014, NewMedia Denver
 
