@@ -5,10 +5,13 @@ require 'simplecov'
 SimpleCov.start do
   add_filter 'vendor/'
 end
-
 RSpec.configure do |config|
+  # Specify the Chef log_level (default: :warn)
   config.log_level = :error
-  config.color_enabled = true
+
+  # Use color output for RSpec
+  config.color = true
+
+  # Use documentation output formatter
   config.formatter = :documentation
-  config.treat_symbols_as_metadata_keys_with_true_values = true
 end

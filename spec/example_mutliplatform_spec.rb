@@ -1,3 +1,7 @@
+# encoding: utf-8
+require 'chefspec'
+require 'spec_helper'
+
 describe 'recipe::name' do
   context 'doing the test named ???' do
     platforms = {
