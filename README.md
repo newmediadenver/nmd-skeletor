@@ -1,16 +1,16 @@
 New Media Denver's nmd-skeletor cookbook
 =============================
 
-nmd-skeletor (0.1.0) Base skeleton Cookbook
+nmd-skeletor (0.2.0) Base skeleton Cookbook
 
-This is the base skeleton Cookbook for New Media Denver's Chef Cookbooks. This skeleton helps rapidly test, deploy, and update a Chef recipe.  The skeleton that we have built leverages Chef metadata and uses tools such as ruby linters, rake, rspec, and travis.
+This is the base skeleton Cookbook for New Media Denver's Chef Cookbooks. This skeleton helps rapidly test, deploy, and update a Chef recipe.  The skeleton that we have built leverages Chef metadata and uses tools such as ruby linters, rake, rspec, travis. In this version, kitchen is configured to use Docker.
 
 Requirements
 ------------
 
 ### Platforms
 
-`every_distro >= 0.1.0`
+`every_distro >= 0.2.0`
 
 ### Dependencies
 
@@ -42,14 +42,11 @@ Testing and Utility
     <Rake::Task integration => [kitchen:all]>
       Alias for kitchen:all
 
-    <Rake::Task kitchen:all => [default-ubuntu-1204, default-ubuntu-1404, default-centos-64]>
+    <Rake::Task kitchen:all => [default-centos-6, default-ubuntu-1404]>
       Run all test instances
 
-    <Rake::Task kitchen:default-centos-64 => []>
-      Run default-centos-64 test instance
-
-    <Rake::Task kitchen:default-ubuntu-1204 => []>
-      Run default-ubuntu-1204 test instance
+    <Rake::Task kitchen:default-centos-6 => []>
+      Run default-centos-6 test instance
 
     <Rake::Task kitchen:default-ubuntu-1404 => []>
       Run default-ubuntu-1404 test instance
@@ -66,14 +63,14 @@ Testing and Utility
     <Rake::Task spec => []>
       Run ChefSpec examples
 
-    <Rake::Task test => [rubocop, foodcritic, spec, integration]>
+    <Rake::Task test => [rubocop, foodcritic, spec]>
       Run all tests
 
 License and Authors
 ------------------
 
 The following engineers have contributed to this code:
- * [Kevin Bridges](https://github.com/cyberswat) - 7 commits
+ * [Kevin Bridges](https://github.com/cyberswat) - 11 commits
  * [David Arnold, DavidXArnold](https://github.com/DavidXArnold) - 12 commits
 
 Copyright:: 2014, NewMedia Denver
