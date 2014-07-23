@@ -2,8 +2,8 @@
 require 'chefspec'
 require 'spec_helper'
 
-describe 'recipe::name' do
-  context 'doing the test named ???' do
+describe 'nmd-skeletor::default' do
+  context 'default' do
     platforms = {
       'ubuntu' => ['12.04', '14.04'],
       'redhat' => ['5.9', '6.5']
@@ -22,10 +22,10 @@ describe 'recipe::name' do
             end.converge(described_recipe)
           end
           it 'does a test' do
-            expect(chef_run).to create_directory('/bob/dobbs').with(
+            expect(chef_run).to create_file('/tmp/BobDobbs').with(
               owner: 'root',
               group: 'root',
-              mode: '0755'
+              mode: '0111'
             )
           end
         end
